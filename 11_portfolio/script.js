@@ -1,0 +1,6 @@
+'use strict';
+function searchProjects(){const query=document.getElementById('projectSearch').value.trim().toLocaleLowerCase('ru');document.querySelectorAll('.project-card').forEach(card=>card.classList.toggle('hidden',!card.textContent.toLocaleLowerCase('ru').includes(query)))}
+function applyTheme(theme){document.body.dataset.theme=theme;const dark=theme==='dark';document.documentElement.style.setProperty('--bg',dark?'#111820':'#f5f7f8');document.documentElement.style.setProperty('--surface',dark?'#1c2731':'#fff');document.documentElement.style.setProperty('--text',dark?'#edf3f6':'#17212b');document.documentElement.style.setProperty('--line',dark?'#34424d':'#e2e8eb');localStorage.setItem('portfolioTheme',theme)}
+function toggleTheme(){applyTheme(document.body.dataset.theme==='dark'?'light':'dark')}
+applyTheme(localStorage.getItem('portfolioTheme')||'light');
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity=1;entry.target.style.transform='none';observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.project-card').forEach(card=>{card.style.opacity=0;card.style.transform='translateY(18px)';card.style.transition='opacity .6s ease, transform .6s ease';observer.observe(card)})}
