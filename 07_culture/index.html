@@ -1,4 +1,39 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>АртПространство — афиша и билеты</title><meta name="description" content="Афиша культурных событий, галерея и калькулятор стоимости билетов. Учебный проект."><meta name="keywords" content="АртПространство, Центр культуры, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="АртПространство — афиша и билеты"><meta property="og:description" content="Афиша культурных событий, галерея и калькулятор стоимости билетов."><meta name="theme-color" content="#17212b"></head>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>АртПространство — афиша и билеты</title><meta name="description" content="Афиша культурных событий, галерея и калькулятор стоимости билетов. Учебный проект."><meta name="keywords" content="АртПространство, Центр культуры, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="АртПространство — афиша и билеты"><meta property="og:description" content="Афиша культурных событий, галерея и калькулятор стоимости билетов."><meta name="theme-color" content="#17212b"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/#organization",
+      "name": "АртПространство",
+      "description": "Афиша культурных событий, галерея и калькулятор стоимости билетов. Учебный проект.",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/#website",
+      "name": "АртПространство",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/",
+      "inLanguage": "ru",
+      "publisher": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/#webpage",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/",
+      "name": "АртПространство — афиша и билеты",
+      "description": "Афиша культурных событий, галерея и калькулятор стоимости билетов. Учебный проект.",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/07_culture/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
 <body><div class="topbar"><div class="wrap nav"><a class="brand" href="index.html">АртПространство<span>.</span></a><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></div></div><header class="hero"><div class="wrap"><div class="eyebrow">Центр культуры</div><h1>Искусство объединяет</h1><p>Современный учебный веб-проект с адаптивным интерфейсом и интерактивными возможностями.</p><div class="hero-actions"><a class="btn" href="#content">Посмотреть возможности</a><a class="btn secondary" href="about.html">О проекте</a></div></div></header><main id="content" class="wrap"><section class="section"><h2>Откройте мир впечатлений</h2><p class="lead">Изучите основные направления и попробуйте интерактивные инструменты проекта.</p><div class="grid"><article class="card"><div class="icon">✦</div><h3>Выставки</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Спектакли</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Концерты</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article></div></section>
 <div class="tools"><section class="panel"><h3>Галерея событий</h3><div id="gallery" class="result" style="min-height:120px;display:grid;place-items:center;font-size:1.4rem">🎭 Театральный вечер</div><div class="chips"><button onclick="moveGallery(-1)">← Назад</button><button onclick="moveGallery(1)">Вперёд →</button></div></section><section class="panel"><h3>Билеты</h3><div class="field"><label>Количество</label><input id="ticketQty" type="number" min="1" max="20" value="1"></div><div class="field"><label>Категория</label><select id="ticketType"><option value="500">Стандарт — 500 ₽</option><option value="900">Комфорт — 900 ₽</option><option value="1500">VIP — 1500 ₽</option></select></div><button onclick="calcTickets()">Рассчитать</button><div id="ticketResult" class="result">Итого: 500 ₽</div></section></div><section class="section"><h2>Афиша</h2><div class="field"><label for="eventDate">Дата мероприятия</label><input type="date" id="eventDate" onchange="filterEvents(currentEventType)"></div><div class="chips"><button onclick="filterEvents('all',this)" class="active">Все</button><button onclick="filterEvents('концерт',this)">Концерты</button><button onclick="filterEvents('выставка',this)">Выставки</button><button onclick="filterEvents('спектакль',this)">Спектакли</button></div><div class="grid"><article class="card event" data-date="2026-12-20" data-type="концерт"><h3>Музыкальный вечер</h3><p>Концерт · 20 декабря</p></article><article class="card event" data-date="2026-12-22" data-type="выставка"><h3>Цвет и форма</h3><p>Выставка · 22 декабря</p></article><article class="card event" data-date="2026-12-24" data-type="спектакль"><h3>Новая история</h3><p>Спектакль · 24 декабря</p></article></div></section></main><footer class="footer"><div class="wrap footer-inner"><b>АртПространство</b><span>Учебный проект · 2026</span><span><a href="contacts.html">Контакты</a></span></div></footer></body></html>
