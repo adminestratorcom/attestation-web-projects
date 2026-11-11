@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://example.com/health/sitemap.xml
+Sitemap: https://adminestratorcom.github.io/attestation-web-projects/06_health/sitemap.xml
