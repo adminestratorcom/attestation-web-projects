@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://example.com/cafe/sitemap.xml
+Sitemap: https://adminestratorcom.github.io/attestation-web-projects/02_cafe/sitemap.xml
