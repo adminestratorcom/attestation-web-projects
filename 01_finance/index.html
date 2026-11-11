@@ -1,5 +1,40 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СеверФинанс — калькулятор вкладов и финансовые решения</title><meta name="description" content="Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации. Учебный проект."><meta name="keywords" content="СеверФинанс, Финансовая организация, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="СеверФинанс — калькулятор вкладов и финансовые решения"><meta property="og:description" content="Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации."><meta name="theme-color" content="#17212b"></head>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СеверФинанс — калькулятор вкладов и финансовые решения</title><meta name="description" content="Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации. Учебный проект."><meta name="keywords" content="СеверФинанс, Финансовая организация, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="СеверФинанс — калькулятор вкладов и финансовые решения"><meta property="og:description" content="Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации."><meta name="theme-color" content="#17212b"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/#organization",
+      "name": "СеверФинанс",
+      "description": "Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации. Учебный проект.",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/#website",
+      "name": "СеверФинанс",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/",
+      "inLanguage": "ru",
+      "publisher": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/#webpage",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/",
+      "name": "СеверФинанс — калькулятор вкладов и финансовые решения",
+      "description": "Демонстрационный сайт финансовой организации: расчёт вклада, тарифы и форма консультации. Учебный проект.",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/01_finance/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
 <body><div class="topbar"><div class="wrap nav"><a class="brand" href="index.html">СеверФинанс<span>.</span></a><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></div></div><header class="hero"><div class="wrap"><div class="eyebrow">Финансовая организация</div><h1>Надёжные решения для ваших целей</h1><p>Современный учебный веб-проект с адаптивным интерфейсом и интерактивными возможностями.</p><div class="hero-actions"><a class="btn" href="#content">Посмотреть возможности</a><a class="btn secondary" href="about.html">О проекте</a></div></div></header><main id="content" class="wrap"><section class="section"><h2>Финансы без сложностей</h2><p class="lead">Изучите основные направления и попробуйте интерактивные инструменты проекта.</p><div class="grid"><article class="card"><div class="icon">✦</div><h3>Вклады</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Кредиты</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Карты</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article></div></section>
 <div class="tools">
 <section class="panel"><h3>Калькулятор вклада</h3><div class="field"><label>Сумма, ₽</label><input id="amount" type="number" min="1000" value="100000"></div><div class="field"><label>Срок, месяцев</label><input id="months" type="number" min="1" max="60" value="12"></div><div class="field"><label>Ставка, % годовых</label><input id="rate" type="number" min="0" max="40" step=".1" value="8"></div><button onclick="calcDeposit()">Рассчитать</button><div id="calcResult" class="result">Укажите параметры и нажмите «Рассчитать».</div><div id="paymentTable"></div></section>
