@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://example.com/portfolio/sitemap.xml
+Sitemap: https://adminestratorcom.github.io/attestation-web-projects/11_portfolio/sitemap.xml
