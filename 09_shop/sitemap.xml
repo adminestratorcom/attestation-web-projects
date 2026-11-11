@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://example.com/shop/index.html</loc></url>
-<url><loc>https://example.com/shop/about.html</loc></url>
-<url><loc>https://example.com/shop/contacts.html</loc></url>
+  <url><loc>https://adminestratorcom.github.io/attestation-web-projects/09_shop/index.html</loc></url>
+  <url><loc>https://adminestratorcom.github.io/attestation-web-projects/09_shop/about.html</loc></url>
+  <url><loc>https://adminestratorcom.github.io/attestation-web-projects/09_shop/contacts.html</loc></url>
 </urlset>
