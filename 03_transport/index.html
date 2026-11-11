@@ -1,4 +1,39 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СибирьТранс — расписание и стоимость поездки</title><meta name="description" content="Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда. Учебный проект."><meta name="keywords" content="СибирьТранс, Транспортная компания, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/03_transport/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="СибирьТранс — расписание и стоимость поездки"><meta property="og:description" content="Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда."><meta name="theme-color" content="#17212b"></head>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СибирьТранс — расписание и стоимость поездки</title><meta name="description" content="Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда. Учебный проект."><meta name="keywords" content="СибирьТранс, Транспортная компания, услуги, информация"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/03_transport/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="СибирьТранс — расписание и стоимость поездки"><meta property="og:description" content="Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда."><meta name="theme-color" content="#17212b"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/#organization",
+      "name": "СибирьТранс",
+      "description": "Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда. Учебный проект.",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/#website",
+      "name": "СибирьТранс",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/",
+      "inLanguage": "ru",
+      "publisher": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/#webpage",
+      "url": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/",
+      "name": "СибирьТранс — расписание и стоимость поездки",
+      "description": "Демонстрационный поиск маршрутов, расписание рейсов и калькулятор стоимости проезда. Учебный проект.",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@id": "https://adminestratorcom.github.io/attestation-web-projects/03_transport/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
 <body><div class="topbar"><div class="wrap nav"><a class="brand" href="index.html">СибирьТранс<span>.</span></a><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></div></div><header class="hero"><div class="wrap"><div class="eyebrow">Транспортная компания</div><h1>Планируйте поездки удобно</h1><p>Современный учебный веб-проект с адаптивным интерфейсом и интерактивными возможностями.</p><div class="hero-actions"><a class="btn" href="#content">Посмотреть возможности</a><a class="btn secondary" href="about.html">О проекте</a></div></div></header><main id="content" class="wrap"><section class="section"><h2>Ваш маршрут начинается здесь</h2><p class="lead">Изучите основные направления и попробуйте интерактивные инструменты проекта.</p><div class="grid"><article class="card"><div class="icon">✦</div><h3>Расписание</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Маршруты</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article><article class="card"><div class="icon">✦</div><h3>Тарифы</h3><p>Подробная информация, понятные условия и удобный сервис.</p></article></div></section>
 <div class="tools"><section class="panel"><h3>Поиск рейсов</h3><div class="field"><label>Направление</label><input id="routeSearch" placeholder="Например, Новосибирск"></div><div class="field"><label>Дата поездки</label><input type="date" id="routeDate"></div><button onclick="searchRoutes()">Найти</button><div id="routes" class="list" style="margin-top:14px"><div class="list-item route" data-date="2026-12-20" data-route="новосибирск томск">Новосибирск — Томск <b>09:30</b></div><div class="list-item route" data-date="2026-12-21" data-route="новосибирск омск">Новосибирск — Омск <b>12:10</b></div><div class="list-item route" data-date="2026-12-22" data-route="томск кемерово">Томск — Кемерово <b>16:40</b></div></div></section><section class="panel"><h3>Табло отправления</h3><p class="muted">До ближайшего рейса (демо-таймер)</p><div id="countdown" class="result">00:15:00</div><p class="notice">Таймер демонстрационный, не является реальным расписанием.</p></section></div><section class="section"><div class="panel"><h3>Калькулятор стоимости</h3><div class="field"><label>Расстояние, км</label><input id="distance" type="number" value="100" min="1"></div><div class="field"><label>Тариф за км, ₽</label><input id="fare" type="number" value="3.5" min="0"></div><button onclick="calcFare()">Рассчитать</button><div id="fareResult" class="result">Стоимость: —</div></div></section></main><footer class="footer"><div class="wrap footer-inner"><b>СибирьТранс</b><span>Учебный проект · 2026</span><span><a href="contacts.html">Контакты</a></span></div></footer></body></html>
