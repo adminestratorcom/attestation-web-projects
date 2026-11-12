@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>АртПространство — афиша культурных мероприятий и билеты</title><meta name="description" content="Посмотрите афишу культурных событий, галерею и рассчитайте стоимость билетов. Учебный проект."><meta name="keywords" content="афиша культурных мероприятий; афиша мероприятий; выставки и концерты; культурные события; билеты на мероприятия; галерея искусства"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="АртПространство — афиша культурных мероприятий и билеты"><meta property="og:description" content="Посмотрите афишу культурных событий, галерею и рассчитайте стоимость билетов. Учебный проект."><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><meta property="og:site_name" content="АртПространство"><meta name="twitter:card" content="summary"><meta name="theme-color" content="#17212b"><script type="application/ld+json">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>АртПространство — афиша культурных мероприятий и билеты</title><meta name="description" content="Посмотрите афишу культурных событий, галерею и рассчитайте стоимость билетов. Учебный проект."><meta name="keywords" content="афиша культурных мероприятий; афиша мероприятий; выставки и концерты; культурные события; билеты на мероприятия; галерея искусства"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><meta property="og:title" content="АртПространство — афиша культурных мероприятий и билеты"><meta property="og:description" content="Посмотрите афишу культурных событий, галерею и рассчитайте стоимость билетов. Учебный проект."><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="https://adminestratorcom.github.io/attestation-web-projects/07_culture/index.html"><meta property="og:site_name" content="АртПространство"><meta name="twitter:card" content="summary"><meta name="theme-color" content="#17212b"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -47,11 +47,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PFKLHHK6');</script>
 <!-- End Google Tag Manager -->
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFKLHHK6"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Yandex.Metrika noscript --><noscript><div><img src="https://mc.yandex.ru/watch/114197682" style="position:absolute;left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika noscript --><div class="topbar"><div class="wrap nav"><a class="brand" href="index.html">АртПространство<span>.</span></a><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></div></div><header class="hero"><div class="wrap"><div class="eyebrow">Центр культуры</div><h1>Искусство объединяет</h1><p>Современный учебный веб-проект с адаптивным интерфейсом и интерактивными возможностями.</p><div class="hero-actions"><a class="btn" href="#content">Посмотреть возможности</a><a class="btn secondary" href="about.html">О проекте</a></div></div></header><main id="content" class="wrap"><section class="section"><h2>Откройте мир впечатлений</h2><p class="lead">Изучите основные направления и попробуйте интерактивные инструменты проекта.</p><div class="grid"><article class="card"><div class="icon">✦</div><h3>Выставки</h3><p>Посмотрите афишу культурных мероприятий: концертов, выставок и спектаклей.</p></article><article class="card"><div class="icon">✦</div><h3>Спектакли</h3><p>Откройте галерею событий и ознакомьтесь с примерами культурной программы.</p></article><article class="card"><div class="icon">✦</div><h3>Концерты</h3><p>Рассчитайте стоимость билетов на мероприятие в зависимости от категории и количества.</p></article></div></section>
-<div class="tools"><section class="panel"><h3>Галерея событий</h3><div id="gallery" class="result" style="min-height:120px;display:grid;place-items:center;font-size:1.4rem">🎭 Театральный вечер</div><div class="chips"><button onclick="moveGallery(-1)">← Назад</button><button onclick="moveGallery(1)">Вперёд →</button></div></section><section class="panel"><h3>Билеты</h3><div class="field"><label>Количество</label><input id="ticketQty" type="number" min="1" max="20" value="1"></div><div class="field"><label>Категория</label><select id="ticketType"><option value="500">Стандарт — 500 ₽</option><option value="900">Комфорт — 900 ₽</option><option value="1500">VIP — 1500 ₽</option></select></div><button onclick="calcTickets()">Рассчитать</button><div id="ticketResult" class="result">Итого: 500 ₽</div></section></div><section class="section"><h2>Афиша</h2><div class="field"><label for="eventDate">Дата мероприятия</label><input type="date" id="eventDate" onchange="filterEvents(currentEventType)"></div><div class="chips"><button onclick="filterEvents('all',this)" class="active">Все</button><button onclick="filterEvents('концерт',this)">Концерты</button><button onclick="filterEvents('выставка',this)">Выставки</button><button onclick="filterEvents('спектакль',this)">Спектакли</button></div><div class="grid"><article class="card event" data-date="2026-12-20" data-type="концерт"><h3>Музыкальный вечер</h3><p>Концерт · 20 декабря</p></article><article class="card event" data-date="2026-12-22" data-type="выставка"><h3>Цвет и форма</h3><p>Выставка · 22 декабря</p></article><article class="card event" data-date="2026-12-24" data-type="спектакль"><h3>Новая история</h3><p>Спектакль · 24 декабря</p></article></div></section></main><footer class="footer"><div class="wrap footer-inner"><b>АртПространство</b><span>Учебный проект · 2026</span><span><a href="contacts.html">Контакты</a></span></div></footer></body></html>
+<style>
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 Arial,sans-serif;background:#f4f6f8;color:#202a35}header,main,footer{max-width:900px;margin:auto;padding:22px}header{background:#fff;border-bottom:1px solid #ddd}nav{display:flex;gap:16px;flex-wrap:wrap}a{color:#17665e}main{padding-top:35px}.panel{background:#fff;padding:24px;border:1px solid #ddd;border-radius:12px;margin:18px 0}h1{font-size:2rem}label{display:block;margin:12px 0}input,select,textarea{display:block;width:100%;max-width:420px;padding:10px;margin-top:5px;border:1px solid #aaa;border-radius:6px;font:inherit}textarea{min-height:90px}button{padding:10px 16px;border:0;border-radius:6px;background:#17665e;color:#fff;font:inherit;cursor:pointer}#result{font-weight:bold;color:#17665e}.note{font-size:14px;color:#555}footer{color:#555}@media(max-width:600px){header,main,footer{padding:16px}}
+</style></head><body data-kind="culture"><header><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></header><main><h1>АртПространство</h1><p>Небольшая афиша культурных событий и калькулятор билетов.</p><section class="panel"><h2>Простая демонстрация</h2><label>Количество билетов <input id="tickets" type="number" value="1" min="1" max="10"></label><button id="go">Посчитать стоимость</button><p id="result">Цена одного билета — 250 ₽.</p><p class="note">Учебный проект. Данные не передаются на сервер.</p></section></main><footer>Учебный веб-проект · HTML, CSS и JavaScript</footer><script>
+"use strict";
+// Находим элемент страницы по его номеру.
+function el(id){return document.getElementById(id)}
+const result=el("result");
+// Добавление товара или блюда в простой список покупок.
+document.querySelectorAll(".add").forEach(function(button){
+ button.addEventListener("click",function(){
+  const old=result.dataset.total?Number(result.dataset.total):0;
+  const total=old+Number(button.dataset.price);
+  result.dataset.total=total;
+  result.textContent="Добавлено: "+button.dataset.name+". Сумма: "+total+" ₽";
+ });
+});
+const go=el("go");
+if(go)go.addEventListener("click",function(){
+ const kind=document.body.dataset.kind;
+ if(kind==="health"){
+  result.textContent=el("person").value.trim()? "Заявка проверена для специалиста: "+el("doctor").value+". Запись не отправлена.":"Введите имя.";
+ }else if(kind==="culture"){
+  const count=Number(el("tickets").value);
+  result.textContent=count>=1&&count<=10?"Стоимость билетов: "+(count*250)+" ₽":"Выберите от 1 до 10 билетов.";
+ }else if(kind==="sport"){
+  const weight=Number(el("weight").value),height=Number(el("height").value)/100;
+  result.textContent=weight>0&&height>0?"Ваш ИМТ: "+(weight/(height*height)).toFixed(1):"Введите вес и рост.";
+ }else if(kind==="service"){
+  const hours=Number(el("hours").value),price=Number(el("service").value);
+  result.textContent=hours>=1&&hours<=8?"Примерная стоимость: "+(hours*price)+" ₽":"Укажите от 1 до 8 часов.";
+ }
+});
+// Простой поиск по списку проектов.
+const search=el("search");
+if(search)search.addEventListener("input",function(){
+ let count=0;
+ document.querySelectorAll("#projects li").forEach(function(item){
+  const found=item.textContent.toLowerCase().includes(search.value.toLowerCase());
+  item.hidden=!found;
+  if(found)count++;
+ });
+ result.textContent="Найдено проектов: "+count;
+});
+</script></body></html>
