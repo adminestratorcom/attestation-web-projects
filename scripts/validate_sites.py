@@ -1,86 +1,96 @@
 from pathlib import Path
-import re
+from html.parser import HTMLParser
 import sys
 import xml.etree.ElementTree as ET
 
-ROOT = Path(".")
 PROJECTS = [
     "01_finance", "02_cafe", "03_transport", "04_social", "05_education",
     "06_health", "07_culture", "08_sport", "09_shop", "10_service", "11_portfolio"
 ]
+BASE = "https://adminestratorcom.github.io/attestation-web-projects/"
 errors = []
-checked = 0
 
-def fail(message):
-    errors.append(message)
+class PageParser(HTMLParser):
+    def __init__(self, page):
+        super().__init__()
+        self.page = page
+        self.title = False
+        self.description = False
+        self.canonical = False
+        self.jsonld = False
+        self.assets = []
 
-html_files = [ROOT / "index.html"]
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "title":
+            self.title = True
+        if tag == "meta" and attrs.get("name", "").lower() == "description" and attrs.get("content", "").strip():
+            self.description = True
+        if tag == "link" and attrs.get("rel", "").lower() == "canonical":
+            self.canonical = True
+        if tag == "script" and attrs.get("type", "").lower() == "application/ld+json":
+            self.jsonld = True
+        for key in ("href", "src"):
+            value = attrs.get(key, "")
+            if value and key == "href" and value.lower().split("?", 1)[0].endswith(".css"):
+                self.assets.append(value)
+            if value and key == "src" and value.lower().split("?", 1)[0].endswith(".js"):
+                self.assets.append(value)
+
+pages = [Path("index.html")]
 for project in PROJECTS:
-    html_files.extend(ROOT / project / page for page in ("index.html", "about.html", "contacts.html"))
+    pages.extend(Path(project) / name for name in ("index.html", "about.html", "contacts.html"))
 
-for path in html_files:
-    if not path.is_file():
-        fail(f"Missing HTML: {path}")
+for page in pages:
+    if not page.is_file():
+        errors.append(f"Missing HTML: {page}")
         continue
-    checked += 1
-    content = path.read_text(encoding="utf-8")
-    rel = path.as_posix()
-    for pattern, label in [
-        (r"<title[^>]*>\\s*.+?\\s*</title>", "title"),
-        (r'<meta[^>]+name=["\\']description["\\'][^>]+content=["\\'][^"\\']+["\\']', "meta description"),
-        (r'<link[^>]+rel=["\\']canonical["\\']', "canonical"),
-    ]:
-        if not re.search(pattern, content, re.I | re.S):
-            fail(f"{rel}: missing {label}")
-    if "application/ld+json" not in content.lower():
-        fail(f"{rel}: missing JSON-LD")
-    for attr, label in (("href", "CSS"), ("src", "JS")):
-        for raw in re.findall(rf'{attr}=["\\']([^"\\']+)["\\']', content, re.I):
-            if raw.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:")):
-                continue
-            target = (path.parent / raw.split("#", 1)[0].split("?", 1)[0]).resolve()
-            if not target.is_file():
-                fail(f"{rel}: missing local {label} reference {raw}")
+    parser = PageParser(page)
+    parser.feed(page.read_text(encoding="utf-8"))
+    for ok, label in ((parser.title, "title"), (parser.description, "meta description"),
+                      (parser.canonical, "canonical"), (parser.jsonld, "JSON-LD")):
+        if not ok:
+            errors.append(f"{page}: missing {label}")
+    for asset in parser.assets:
+        if asset.startswith(("http://", "https://", "//")):
+            continue
+        local = (page.parent / asset.split("#", 1)[0].split("?", 1)[0])
+        if not local.is_file():
+            errors.append(f"{page}: missing local asset {asset}")
 
-# Root sitemap must contain the catalog and all 33 project pages.
-try:
-    root = ET.parse(ROOT / "sitemap.xml").getroot()
+def read_sitemap(path):
+    root = ET.parse(path).getroot()
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    urls = {node.text for node in root.findall(".//sm:loc", ns)}
-    base = "https://adminestratorcom.github.io/attestation-web-projects/"
-    expected = {base}
+    return {node.text for node in root.findall(".//sm:loc", ns)}
+
+try:
+    expected = {BASE}
     for project in PROJECTS:
-        expected.update(base + project + "/" + page for page in ("index.html", "about.html", "contacts.html"))
-    missing = sorted(expected - urls)
-    extra = sorted(urls - expected)
-    if missing:
-        fail(f"Root sitemap missing {len(missing)} expected URL(s): {missing}")
-    if extra:
-        fail(f"Root sitemap has {len(extra)} unexpected URL(s): {extra}")
+        expected.update(BASE + project + "/" + name for name in ("index.html", "about.html", "contacts.html"))
+    actual = read_sitemap(Path("sitemap.xml"))
+    if actual != expected:
+        errors.append(f"Root sitemap mismatch: expected {len(expected)} URLs, found {len(actual)}")
 except Exception as exc:
-    fail(f"Root sitemap.xml invalid: {exc}")
+    errors.append(f"Root sitemap.xml invalid: {exc}")
 
 for project in PROJECTS:
-    folder = ROOT / project
     try:
-        tree = ET.parse(folder / "sitemap.xml").getroot()
-        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-        urls = {node.text for node in tree.findall(".//sm:loc", ns)}
-        expected = {f"https://adminestratorcom.github.io/attestation-web-projects/{project}/{page}" for page in ("index.html", "about.html", "contacts.html")}
-        if urls != expected:
-            fail(f"{project}/sitemap.xml: expected 3 project URLs, found {len(urls)}")
+        expected = {BASE + project + "/" + name for name in ("index.html", "about.html", "contacts.html")}
+        actual = read_sitemap(Path(project) / "sitemap.xml")
+        if actual != expected:
+            errors.append(f"{project}/sitemap.xml mismatch: expected 3 URLs, found {len(actual)}")
     except Exception as exc:
-        fail(f"{project}/sitemap.xml invalid: {exc}")
-    robots = folder / "robots.txt"
+        errors.append(f"{project}/sitemap.xml invalid: {exc}")
+    robots = Path(project) / "robots.txt"
     if not robots.is_file() or f"/{project}/sitemap.xml" not in robots.read_text(encoding="utf-8"):
-        fail(f"{project}/robots.txt missing or does not reference its sitemap")
+        errors.append(f"{project}/robots.txt missing or sitemap reference incorrect")
 
-root_robots = ROOT / "robots.txt"
+root_robots = Path("robots.txt")
 if not root_robots.is_file() or "/attestation-web-projects/sitemap.xml" not in root_robots.read_text(encoding="utf-8"):
-    fail("Root robots.txt missing or does not reference root sitemap")
+    errors.append("Root robots.txt missing or sitemap reference incorrect")
 
-print(f"Checked {checked}/{len(html_files)} HTML pages.")
+print(f"Checked {len(pages)} expected HTML pages.")
 if errors:
-    print("\\n".join(f"ERROR: {item}" for item in errors))
+    print("\n".join("ERROR: " + error for error in errors))
     sys.exit(1)
-print("PASS: HTML metadata, local CSS/JS references, robots.txt and all sitemaps.")
+print("PASS: page metadata, local CSS/JS references, robots.txt and all sitemaps.")
