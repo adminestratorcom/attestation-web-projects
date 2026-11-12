@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СеверФинанс — калькулятор вклада и расчёт доходности</title><meta name="description" content="Рассчитайте доходность вклада, изучите условия и воспользуйтесь демонстрационным калькулятором. Учебный проект СеверФинанс."><meta name="keywords" content="калькулятор вклада; расчёт процентов по вкладу; доходность вклада; вклад на 12 месяцев; банковские вклады; финансовые услуги"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><link rel="stylesheet" href="style.css"><script defer src="script.js"></script><meta property="og:title" content="СеверФинанс — калькулятор вклада и расчёт доходности"><meta property="og:description" content="Рассчитайте доходность вклада, изучите условия и воспользуйтесь демонстрационным калькулятором. Учебный проект СеверФинанс."><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><meta property="og:site_name" content="СеверФинанс"><meta name="twitter:card" content="summary"><meta name="theme-color" content="#17212b"><script type="application/ld+json">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>СеверФинанс — калькулятор вклада и расчёт доходности</title><meta name="description" content="Рассчитайте доходность вклада, изучите условия и воспользуйтесь демонстрационным калькулятором. Учебный проект СеверФинанс."><meta name="keywords" content="калькулятор вклада; расчёт процентов по вкладу; доходность вклада; вклад на 12 месяцев; банковские вклады; финансовые услуги"><meta name="robots" content="index,follow"><link rel="canonical" href="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><meta property="og:title" content="СеверФинанс — калькулятор вклада и расчёт доходности"><meta property="og:description" content="Рассчитайте доходность вклада, изучите условия и воспользуйтесь демонстрационным калькулятором. Учебный проект СеверФинанс."><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="https://adminestratorcom.github.io/attestation-web-projects/01_finance/index.html"><meta property="og:site_name" content="СеверФинанс"><meta name="twitter:card" content="summary"><meta name="theme-color" content="#17212b"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -53,16 +53,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PFKLHHK6');</script>
 <!-- End Google Tag Manager -->
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFKLHHK6"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- Yandex.Metrika noscript -->
-<noscript><div><img src="https://mc.yandex.ru/watch/114197682" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika noscript --><div class="topbar"><div class="wrap nav"><a class="brand" href="index.html">СеверФинанс<span>.</span></a><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></div></div><header class="hero"><div class="wrap"><div class="eyebrow">Финансовая организация</div><h1>Надёжные решения для ваших целей</h1><p>Современный учебный веб-проект с адаптивным интерфейсом и интерактивными возможностями.</p><div class="hero-actions"><a class="btn" href="#content">Посмотреть возможности</a><a class="btn secondary" href="about.html">О проекте</a></div></div></header><main id="content" class="wrap"><section class="section"><h2>Финансы без сложностей</h2><p class="lead">Изучите основные направления и попробуйте интерактивные инструменты проекта.</p><div class="grid"><article class="card"><div class="icon">✦</div><h3>Вклады</h3><p>Рассчитайте доходность вклада, сравните сроки размещения средств и изучите базовые финансовые инструменты.</p></article><article class="card"><div class="icon">✦</div><h3>Кредиты</h3><p>Разберитесь в условиях вкладов, сроках и процентных ставках с помощью демонстрационного калькулятора.</p></article><article class="card"><div class="icon">✦</div><h3>Карты</h3><p>Изучите финансовые продукты и примеры расчётов для планирования личного бюджета.</p></article></div></section>
-<div class="tools">
-<section class="panel"><h3>Калькулятор вклада</h3><div class="field"><label>Сумма, ₽</label><input id="amount" type="number" min="1000" value="100000"></div><div class="field"><label>Срок, месяцев</label><input id="months" type="number" min="1" max="60" value="12"></div><div class="field"><label>Ставка, % годовых</label><input id="rate" type="number" min="0" max="40" step=".1" value="8"></div><button onclick="calcDeposit()">Рассчитать</button><div id="calcResult" class="result">Укажите параметры и нажмите «Рассчитать».</div><div id="paymentTable"></div></section>
-<section class="panel"><h3>Заявка на консультацию</h3><form class="validate-form"><div class="field"><label>Имя</label><input required name="name"></div><div class="field"><label>Телефон</label><input required name="phone" placeholder="+7 900 000-00-00" pattern="^[+0-9()\-\s]{10,18}$"></div><div class="field"><label>E-mail</label><input required type="email" name="email"></div><button>Отправить заявку</button><p class="notice">Демонстрационная форма: данные не отправляются в банк.</p></form></section>
-</div><section class="section"><h2>Тарифы</h2><div class="grid"><article class="card"><h3>Старт</h3><p>Базовые решения для повседневных задач.</p><button class="secondary" onclick="showPlan('Старт','Обслуживание без лишних опций, онлайн-поддержка.')">Подробнее</button></article><article class="card"><h3>Комфорт</h3><p>Больше возможностей и персональный подход.</p><button class="secondary" onclick="showPlan('Комфорт','Расширенные лимиты и приоритетная поддержка.')">Подробнее</button></article><article class="card"><h3>Премиум</h3><p>Комплексное обслуживание.</p><button class="secondary" onclick="showPlan('Премиум','Персональный менеджер и дополнительные сервисы.')">Подробнее</button></article></div><div id="planInfo" class="result hidden"></div></section></main><footer class="footer"><div class="wrap footer-inner"><b>СеверФинанс</b><span>Учебный проект · 2026</span><span><a href="contacts.html">Контакты</a></span></div></footer></body></html>
+<style>
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 Arial,sans-serif;background:#f4f6f8;color:#202a35}header,main,footer{max-width:900px;margin:auto;padding:22px}header{background:#fff;border-bottom:1px solid #ddd}nav{display:flex;gap:16px;flex-wrap:wrap}a{color:#17665e}main{padding-top:35px}.panel{background:#fff;padding:24px;border:1px solid #ddd;border-radius:12px;margin:18px 0}h1{font-size:2rem}label{display:block;margin:12px 0}input,select,textarea{display:block;width:100%;max-width:420px;padding:10px;margin-top:5px;border:1px solid #aaa;border-radius:6px;font:inherit}textarea{min-height:90px}button{padding:10px 16px;border:0;border-radius:6px;background:#17665e;color:#fff;font:inherit;cursor:pointer}#result{font-weight:bold;color:#17665e}.note{font-size:14px;color:#555}footer{color:#555}@media(max-width:600px){header,main,footer{padding:16px}}
+</style></head><body data-kind="finance"><header><nav><a href="index.html">Главная</a><a href="about.html">О проекте</a><a href="contacts.html">Контакты</a></nav></header><main><h1>СеверФинанс</h1><p>Простой учебный калькулятор вклада.</p><section class="panel"><h2>Простая демонстрация</h2><label>Сумма вклада, ₽ <input id="amount" type="number" value="10000" min="1000"></label><label>Ставка в год, % <input id="rate" type="number" value="8" min="0" max="40"></label><label>Срок, месяцев <input id="months" type="number" value="12" min="1" max="60"></label><button id="go">Рассчитать</button><p id="result">Введите данные и нажмите кнопку.</p><p class="note">Учебный проект. Данные не передаются на сервер.</p></section></main><footer>Учебный веб-проект · HTML, CSS и JavaScript</footer><script>
+"use strict";
+// Находим элемент страницы по его номеру.
+function el(id){return document.getElementById(id)}
+const result=el("result");
+document.querySelectorAll(".add").forEach(function(button){
+ button.addEventListener("click",function(){
+  const old=result.dataset.total?Number(result.dataset.total):0;
+  const total=old+Number(button.dataset.price);
+  result.dataset.total=total;
+  result.textContent="Добавлено: "+button.dataset.name+". Сумма заказа: "+total+" ₽";
+ });
+});
+const go=el("go");
+if(go)go.addEventListener("click",function(){
+ const kind=document.body.dataset.kind;
+ if(kind==="finance"){
+  const amount=Number(el("amount").value),rate=Number(el("rate").value),months=Number(el("months").value);
+  if(amount<1000||rate<0||rate>40||months<1||months>60){result.textContent="Проверьте введённые значения.";return}
+  result.textContent="Примерная сумма: "+(amount*Math.pow(1+rate/1200,months)).toFixed(2)+" ₽";
+ }else if(kind==="transport"){
+  const distance=Number(el("distance").value),price=Number(el("price").value);
+  result.textContent=distance>0&&price>0?"Стоимость поездки: "+(distance*price)+" ₽":"Введите положительные числа.";
+ }else if(kind==="social"){
+  result.textContent=el("question").value.trim().length>=5?"Вопрос заполнен. Это демонстрация, отправка не выполняется.":"Напишите вопрос хотя бы из 5 символов.";
+ }else if(kind==="education"){
+  result.textContent="Вы выбрали курс: "+el("course").value+". Запись не выполняется.";
+ }
+});
+</script></body></html>
