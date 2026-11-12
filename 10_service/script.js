@@ -1,4 +1,6 @@
 'use strict';
+const bookedServiceSlots = new Set(['2026-12-25|12:00']);
+
 function calcService(){
  const base=Number(document.getElementById('priceService')?.value||0);
  const complexity=Number(document.getElementById('complexity')?.value||1);
@@ -7,20 +9,30 @@ function calcService(){
  const result=document.getElementById('servicePriceResult');
  if(result) result.textContent='Ориентировочная стоимость: '+total.toLocaleString('ru-RU')+' ₽';
 }
+
 document.addEventListener('DOMContentLoaded',()=>{
  const booking=document.getElementById('serviceForm');
+ const dateInput=document.getElementById('serviceDate');
+ if(dateInput) dateInput.min=new Date().toISOString().slice(0,10);
+
  if(booking) booking.addEventListener('submit',event=>{
   event.preventDefault();
-  const date=document.getElementById('serviceDate');
   const result=document.getElementById('bookingResult');
   if(!booking.reportValidity()) return;
-  if(date?.value && date.value < new Date().toISOString().slice(0,10)){
-   date.setCustomValidity('Выберите сегодняшнюю или будущую дату.');date.reportValidity();date.setCustomValidity('');return;
+  const date=dateInput?.value||'';
+  const time=document.getElementById('serviceTime')?.value||'';
+  if(date && date < new Date().toISOString().slice(0,10)){
+   if(result) result.textContent='Нельзя выбрать прошедшую дату. Выберите сегодняшний или будущий день.';
+   return;
+  }
+  if(bookedServiceSlots.has(date+'|'+time)){
+   if(result) result.textContent='Это время уже занято. Выберите другой свободный слот.';
+   return;
   }
   const service=document.getElementById('serviceType')?.value||'Услуга';
-  const time=document.getElementById('serviceTime')?.value||'';
-  if(result) result.textContent='Заявка на «'+service+'» на '+date.value+' в '+time+' подготовлена. Это демонстрационная форма, отправка в организацию не выполняется.';
+  if(result) result.textContent='Заявка на «'+service+'» на '+date+' в '+time+' подготовлена. Это демонстрационная форма, отправка в организацию не выполняется.';
  });
+
  const reviewForm=document.getElementById('reviewForm');
  if(reviewForm) reviewForm.addEventListener('submit',event=>{
   event.preventDefault();
@@ -33,9 +45,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   const paragraph=document.createElement('p');paragraph.textContent=message;
   row.append(strong,paragraph);document.getElementById('reviews').prepend(row);reviewForm.reset();
  });
+
  document.querySelectorAll('.validate-form').forEach(form=>form.addEventListener('submit',event=>{
-  event.preventDefault();if(!form.reportValidity())return;
-  const note=document.createElement('p');note.className='result';note.textContent='Спасибо! Форма проверена в демонстрационном режиме; данные никуда не отправляются.';
+  event.preventDefault();
+  if(!form.reportValidity()) return;
+  const note=document.createElement('p');note.className='result';
+  note.textContent='Спасибо! Форма проверена в демонстрационном режиме; данные никуда не отправляются.';
   form.append(note);form.reset();
  }));
 });
